@@ -1,0 +1,79 @@
+.footer {
+   padding: toRem(80) 0 toRem(20);
+   background-color: $mainColor;
+   color: $whiteColor;
+   &__container {
+   }
+
+   &__title {
+      @include adaptiveValue("font-size", 52, 28);
+      font-weight: 700;
+      letter-spacing: toRem(1);
+      line-height: math.div(59.4, 52);
+      @include adaptiveValue("margin-bottom", 98, 30);
+      span {
+         color: #3c46ff;
+      }
+   }
+
+   &__row {
+      display: flex;
+      justify-content: space-between;
+      gap: toRem(30);
+      @include adaptiveValue("margin-bottom", 155, 30);
+      @media (max-width: $mobileSmall) {
+         flex-wrap: wrap;
+      }
+   }
+
+   &__info {
+      color: $greyColor;
+      img {
+         margin-bottom: toRem(14);
+      }
+      p {
+         margin-bottom: toRem(20);
+      }
+      a {
+         position: relative;
+         display: inline-flex;
+         padding-left: toRem(36);
+         &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            width: toRem(30);
+            height: toRem(21);
+            background: url("../assets/icons/mail.svg") 0 0 / cover no-repeat;
+         }
+      }
+   }
+
+   &__nav {
+      flex: 0 1 toRem(485);
+      justify-content: space-between;
+      gap: toRem(10);
+      display: flex;
+   }
+
+   &__nav-column {
+      flex: 0 1 33.33333%;
+      li {
+         &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 40, 20);
+         }
+      }
+      a {
+         @include adaptiveValue("font-size", 18, 14);
+         font-weight: 700;
+      }
+   }
+
+   &__copyright {
+      @include adaptiveValue("font-size", 16, 12);
+      line-height: math.div(20.8, 16);
+      color: #8a95ad;
+   }
+}

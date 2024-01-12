@@ -1,0 +1,85 @@
+.career {
+   padding: toRem(80) 0;
+   &__container {
+   }
+
+   &__row {
+      display: flex;
+      @include adaptiveValue("gap", 48, 28);
+      @media (max-width: $mobile) {
+         flex-wrap: wrap;
+      }
+   }
+
+   &__column {
+      flex: 0 1 50%;
+      @media (max-width: $mobile) {
+         flex: 0 1 100%;
+      }
+   }
+
+   &__title {
+      @include adaptiveValue("font-size", 36, 22);
+      @include adaptiveValue("margin-bottom", 45, 20);
+   }
+
+   &__steps {
+   }
+
+   &__step {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      column-gap: toRem(10);
+      @include adaptiveValue("padding-top", 40, 20);
+      @include adaptiveValue("padding-bottom", 40, 20);
+      border-bottom: toRem(1) solid #e5e5e5;
+      &::before {
+         content: "";
+         position: absolute;
+         top: percent(40, 197.77);
+         right: 0;
+         width: toRem(12.52);
+         height: toRem(12.52);
+         background: url("../assets/icons/arrow-rt.svg") 0 0 no-repeat;
+      }
+   }
+
+   &__step-info {
+      flex: 0 1 percent(296, 583);
+   }
+
+   &__step-work {
+      flex: 0 1 percent(340, 583);
+      display: flex;
+      align-items: center;
+      column-gap: toRem(20);
+   }
+
+   &__name {
+      @include adaptiveValue("font-size", 24, 16);
+      font-weight: 700;
+      line-height: math.div(26.4, 24);
+      margin-bottom: toRem(10);
+   }
+
+   &__desc {
+      @include adaptiveValue("font-size", 16, 12);
+      line-height: math.div(20.8, 16);
+      color: rgba(0, 0, 0, 0.6);
+   }
+
+   &__step-date {
+      @include adaptiveValue("font-size", 16, 12);
+      color: rgba(0, 0, 0, 0.6);
+      //@include adaptiveValue("padding-right", 40, 20);
+      white-space: nowrap;
+   }
+
+   &__step-image {
+   }
+
+   &__step-info {
+   }
+}

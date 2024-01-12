@@ -1,0 +1,63 @@
+// Базовые стили спойлеров
+// Сниппет (HTML): spoller
+
+// Блок со спойлерами
+.spollers {
+	display: grid;
+	gap: 15px;
+}
+// Спойлер
+.spollers__item {
+	padding-bottom: toRem(30);
+	border-bottom: toRem(1) solid rgba(229, 229, 229, 0.3);
+}
+// Заголовок спойлера
+.spollers__title {
+	width: 100%;
+	@include adaptiveValue("font-size", 24, 16);
+	cursor: pointer;
+	text-align: left;
+	color: $whiteColor;
+	position: relative;
+	list-style: none;
+	line-height: 120%;
+	padding-right: toRem(30);
+	._spoller-init & {
+		position: relative;
+		width: 100%;
+		text-align: left;
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: toRem(12);
+			height: toRem(1);
+			transition: all 0.3s ease 0s;
+			width: toRem(10);
+			background-color: $whiteColor;
+		}
+		&::before {
+			transform: rotate(40deg);
+			right: toRem(7);
+		}
+		&::after {
+			transform: rotate(-40deg);
+		}
+	}
+	&._spoller-active {
+		&::before {
+			transform: rotate(-40deg);
+		}
+		&::after {
+			transform: rotate(40deg);
+		}
+	}
+}
+// Контент спойлера
+.spollers__body {
+	color: $whiteColor;
+	padding: toRem(20) toRem(20) 0 toRem(20);
+	@include adaptiveValue("font-size", 16, 14);
+	line-height: 140%;
+}

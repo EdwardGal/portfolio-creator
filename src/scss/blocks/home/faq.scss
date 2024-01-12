@@ -1,0 +1,31 @@
+.faq {
+   padding: toRem(80) 0;
+   background-color: $mainColor;
+   
+   &__title {
+      text-align: center;
+      color: $whiteColor;
+      @include adaptiveValue("margin-bottom", 122, 40);
+      &::before {
+         content: "FAQ";
+         color: #ff8a56;
+         left: 50%;
+         transform: translateX(-50%);
+      }
+   }
+
+   &__row {
+      display: flex;
+      @include adaptiveValue("gap", 50, 20);
+      @media (max-width: $mobile) {
+         flex-wrap: wrap;
+      }
+   }
+
+   &__column {
+      flex: 0 1 50%;
+      @media (max-width: $mobile) {
+         flex-basis: 100%;
+      }
+   }
+}

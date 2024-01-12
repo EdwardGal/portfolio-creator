@@ -1,0 +1,102 @@
+.product {
+   padding: toRem(80) 0;
+
+   &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: toRem(20);
+      @include adaptiveValue("margin-bottom", 115, 30);
+      @media (max-width: $mobile) {
+         flex-wrap: wrap;
+      }
+   }
+
+   &__title {
+      &::before {
+         content: "Product Designer";
+         color: #ff5e69;
+      }
+   }
+
+   &__desc {
+      flex: 0 1 toRem(625);
+      @include adaptiveValue("font-size", 22, 16);
+      line-height: math.div(40, 22);
+      color: $greyColor;
+   }
+
+   &__items {
+      display: flex;
+      @include adaptiveValue("column-gap", 16, 6);
+   }
+
+   &__item {
+      position: relative;
+      overflow: hidden;
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         transition: scale 0.3s;
+      }
+
+      &_left,
+      &_center {
+         &::before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: toRem(15);
+            right: toRem(15);
+            bottom: toRem(15);
+            left: toRem(15);
+            border: toRem(1) solid transparent;
+            transition: border-color 0.3s;
+         }
+         @media (min-width: $mobile) {
+            &:hover {
+               &::before {
+                  content: "";
+                  border-color: #ff5e69;
+               }
+               img {
+                  scale: 1.05;
+               }
+            }
+         }
+      }
+
+      &_right {
+         display: flex;
+         flex-direction: column;
+         @include adaptiveValue("row-gap", 16, 6);
+      }
+   }
+
+   &__item-inner {
+      position: relative;
+      &::before {
+         content: "";
+         position: absolute;
+         z-index: 1;
+         top: toRem(15);
+         right: toRem(15);
+         bottom: toRem(15);
+         left: toRem(15);
+         border: toRem(1) solid transparent;
+         transition: border-color 0.3s;
+      }
+      @media (min-width: $mobile) {
+         &:hover {
+            &::before {
+               content: "";
+               border-color: #ff5e69;
+            }
+            img {
+               scale: 1.05;
+            }
+         }
+      }
+   }
+}

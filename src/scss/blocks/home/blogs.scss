@@ -1,0 +1,79 @@
+.blogs {
+   background-color: $mainColor;
+   margin-top: toRem(-314);
+   @include adaptiveValue("margin-top", -314, -240);
+   @include adaptiveValue("padding-top", 286, 240);
+   @include adaptiveValue("padding-bottom", 145, 80);
+
+   &__container {
+   }
+
+   &__row {
+      display: flex;
+      justify-content: space-between;
+      gap: toRem(30);
+      color: $whiteColor;
+      @media (max-width: $mobile) {
+         flex-wrap: wrap;
+      }
+   }
+
+   &__header {
+   }
+
+   &__title {
+      @include adaptiveValue("margin-bottom", 32, 16);
+      &::before {
+         content: "Blogs";
+         color: #ffa84b;
+      }
+   }
+
+   &__link {
+      padding: 0;
+      column-gap: toRem(16);
+   }
+
+   &__info {
+      flex: 0 1 toRem(693);
+   }
+}
+
+.blog {
+   @include adaptiveValue("padding-top", 30, 15);
+   @include adaptiveValue("padding-bottom", 30, 15);
+   border-bottom: toRem(1) solid rgba(255, 255, 255, 0.3);
+   &__date {
+      font-size: toRem(15);
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.7);
+      @include adaptiveValue("margin-bottom", 26, 12);
+      span {
+         position: relative;
+         margin-left: toRem(8);
+         padding-left: toRem(8);
+         &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: toRem(3);
+            height: toRem(3);
+            background-color: $whiteColor;
+         }
+      }
+   }
+
+   &__title {
+      max-width: toRem(580);
+      @include adaptiveValue("font-size", 28, 18);
+      font-weight: 700;
+      line-height: math.div(36, 28);
+      @include adaptiveValue("margin-bottom", 39, 18);
+   }
+
+   &__link {
+      padding: 0;
+      column-gap: toRem(16);
+   }
+}

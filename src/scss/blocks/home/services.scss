@@ -1,0 +1,76 @@
+.services {
+   padding: toRem(120) 0 toRem(80) 0;
+
+
+   &__title {
+      text-align: center;
+      max-width: toRem(768);
+      margin: 0 auto;
+      @include adaptiveValue("margin-bottom", 114, 50);
+      &::before {
+         content: "Services";
+         left: 50%;
+         transform: translateX(-50%);
+         color: #ff5e69;
+      }
+   }
+
+   &__info {
+      display: flex;
+      justify-content: space-between;
+      gap: toRem(40);
+      @media (max-width: $mobile) {
+         flex-wrap: wrap;
+         justify-content: center;
+      }
+   }
+
+   &__item {
+      flex: 0 1 toRem(274);
+   }
+}
+.item-services {
+   &__image {
+      @include adaptiveValue("max-width", 70, 40);
+      @include adaptiveValue("margin-bottom", 39, 20);
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+
+   &__title {
+      @include adaptiveValue("font-size", 24, 18);
+      font-weight: 700;
+      line-height: math.div(26.4, 24);
+      @include adaptiveValue("margin-bottom", 25, 16);
+   }
+
+   &__text {
+      color: $greyColor;
+      line-height: math.div(28, 16);
+      @include adaptiveValue("margin-bottom", 21, 14);
+   }
+
+   &__list {
+      li {
+         position: relative;
+         font-weight: 700;
+         padding-left: toRem(17);
+         &:not(:last-child) {
+            margin-bottom: toRem(20);
+         }
+         &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: toRem(7);
+            width: toRem(7);
+            background-color: $mainColor;
+         }
+      }
+   }
+}
